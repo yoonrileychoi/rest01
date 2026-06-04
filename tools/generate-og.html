@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>OG Image Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; background: #1a1a2e;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 100vh; gap: 1.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    canvas { border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.6); max-width: 90vw; }
+    .btn {
+      padding: .85rem 2.5rem; font-size: 1rem; font-weight: 600;
+      background: linear-gradient(135deg, #52b788, #56cfe1);
+      color: #fff; border: none; border-radius: 999px;
+      cursor: pointer; letter-spacing: .04em;
+      box-shadow: 0 4px 20px rgba(82,183,136,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(82,183,136,.5); }
+    .note { color: #7aaa8e; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <canvas id="og" width="1200" height="630"></canvas>
+  <button class="btn" onclick="download()">⬇ og-image.png 저장</button>
+  <p class="note">저장된 파일을 assets/images/og-image.png 로 이동해주세요</p>
+
+  <script>
+    async function draw() {
+      await document.fonts.ready;
+
+      const c   = document.getElementById('og');
+      const ctx = c.getContext('2d');
+      const W = 1200, H = 630;
+
+      // ── 배경 그라디언트 (베이비블루) ──
+      const bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0,   '#b8deff');
+      bg.addColorStop(0.5, '#cceeff');
+      bg.addColorStop(1,   '#e8f6ff');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── 장식 원 (배경) ──
+      const circles = [
+        { x: -60,  y: -60,  r: 200, color: '#90c8f0', a: 0.3 },
+        { x: 1240, y: 680,  r: 260, color: '#6bb8e8', a: 0.2 },
+        { x: 1100, y:  60,  r: 130, color: '#a8d8f0', a: 0.25 },
+        { x:  200, y: 580,  r:  80, color: '#52b788', a: 0.2 },
+        { x: 1050, y: 320,  r:  50, color: '#56cfe1', a: 0.3 },
+      ];
+      circles.forEach(({ x, y, r, color, a }) => {
+        ctx.globalAlpha = a;
+        ctx.fillStyle = color;
+        ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+
+      // ── 도트 패턴 (우측) ──
+      ctx.globalAlpha = 0.35;
+      for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 7; j++) {
+          ctx.fillStyle = (i + j) % 2 === 0 ? '#52b788' : '#56cfe1';
+          ctx.beginPath();
+          ctx.arc(880 + i * 44, 160 + j * 44, 5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+
+      // ── 좌측 강조 바 ──
+      const bar = ctx.createLinearGradient(100, 0, 100, 400);
+      bar.addColorStop(0, '#52b788');
+      bar.addColorStop(1, '#56cfe1');
+      ctx.fillStyle = bar;
+      ctx.beginPath();
+      roundRect(ctx, 100, 160, 6, 300, 3);
+      ctx.fill();
+
+      // ── 태그라인 ──
+      ctx.fillStyle = '#2c7a9e';
+      ctx.font = '600 32px Inter, "Noto Sans KR"';
+      ctx.fillText('서비스 기획자  ·  신규 서비스 기획  ·  UI/UX 설계', 128, 215);
+
+      // ── 메인 이름 (한글) ──
+      ctx.fillStyle = '#0c2d44';
+      ctx.font = '900 110px "Noto Sans KR"';
+      ctx.fillText('최윤정', 120, 370);
+
+      // ── 영문 이름 ──
+      ctx.fillStyle = '#1a4a6a';
+      ctx.font = '400 40px Inter';
+      ctx.fillText('Yoonjoung Riley Choi', 126, 430);
+
+      // ── 구분선 ──
+      const line = ctx.createLinearGradient(120, 0, 600, 0);
+      line.addColorStop(0, '#52b788');
+      line.addColorStop(1, '#56cfe1');
+      ctx.strokeStyle = line;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(120, 460); ctx.lineTo(560, 460); ctx.stroke();
+
+      // ── URL ──
+      ctx.fillStyle = '#3a7a9e';
+      ctx.font = '400 28px Inter';
+      ctx.fillText('yoonrileychoi.github.io/rest01', 122, 510);
+
+      // ── 우측 큰 장식 원 (반투명) ──
+      ctx.globalAlpha = 0.08;
+      ctx.strokeStyle = '#1a4a6a';
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(990, 315, 220, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(990, 315, 160, 0, Math.PI * 2); ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      // ── KR 배지 ──
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      roundRect(ctx, 830, 480, 160, 44, 22);
+      ctx.fill();
+      ctx.fillStyle = '#1a4a6a';
+      ctx.font = '600 20px Inter, "Noto Sans KR"';
+      ctx.textAlign = 'center';
+      ctx.fillText('🇰🇷 Korea', 910, 507);
+      ctx.textAlign = 'left';
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function download() {
+      const a = document.createElement('a');
+      a.download = 'og-image.png';
+      a.href = document.getElementById('og').toDataURL('image/png');
+      a.click();
+    }
+
+    draw();
+  </script>
+</body>
+</html>
