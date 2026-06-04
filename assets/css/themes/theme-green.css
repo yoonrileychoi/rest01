@@ -1,0 +1,24 @@
+/* ── THEME: Dark Green × Sky Blue (default) ── */
+:root {
+  --color-bg:          #060e09;
+  --color-surface:     #0c1e11;
+  --color-surface2:    #132819;
+  --color-accent:      #52b788;        /* 주컬러: 다크 그린 */
+  --color-accent-50:   rgba(82,183,136,.5); /* 보조컬러: 50% */
+  --color-accent2:     #56cfe1;        /* 이벤트컬러: 스카이블루 */
+  --color-text:        #e8f5ee;
+  --color-muted:       #7aaa8e;
+  --color-border:      rgba(82,183,136,.22);
+
+  --glow-sm:   0 4px 20px rgba(82,183,136,.28);
+  --glow-md:   0 8px 30px rgba(82,183,136,.42);
+  --glow-photo: 0 0 0 8px rgba(82,183,136,.12), 0 20px 60px rgba(0,0,0,.5);
+
+  --gradient-accent: linear-gradient(135deg, #52b788, #56cfe1);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(82,183,136,.16) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(86,207,225,.1) 0%, transparent 60%);
+  --gradient-title: linear-gradient(90deg, #52b788, #56cfe1);
+
+  --particle-r: 82; --particle-g: 183; --particle-b: 136;
+}

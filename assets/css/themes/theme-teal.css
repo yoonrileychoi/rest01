@@ -1,0 +1,24 @@
+/* ── THEME: Dark Teal × Aqua ── */
+:root {
+  --color-bg:          #060e0d;
+  --color-surface:     #0c1f1d;
+  --color-surface2:    #122b28;
+  --color-accent:      #4ecdc4;
+  --color-accent-50:   rgba(78,205,196,.5);
+  --color-accent2:     #72efdd;
+  --color-text:        #e8f8f6;
+  --color-muted:       #7aaa9e;
+  --color-border:      rgba(78,205,196,.22);
+
+  --glow-sm:   0 4px 20px rgba(78,205,196,.28);
+  --glow-md:   0 8px 30px rgba(78,205,196,.42);
+  --glow-photo: 0 0 0 8px rgba(78,205,196,.12), 0 20px 60px rgba(0,0,0,.5);
+
+  --gradient-accent: linear-gradient(135deg, #4ecdc4, #72efdd);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(78,205,196,.16) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(114,239,221,.1) 0%, transparent 60%);
+  --gradient-title: linear-gradient(90deg, #4ecdc4, #72efdd);
+
+  --particle-r: 78; --particle-g: 205; --particle-b: 196;
+}

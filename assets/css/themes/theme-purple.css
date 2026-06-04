@@ -1,0 +1,24 @@
+/* ── THEME: Dark Purple × Lavender ── */
+:root {
+  --color-bg:          #0e0c16;
+  --color-surface:     #17132a;
+  --color-surface2:    #211b38;
+  --color-accent:      #b39ddb;
+  --color-accent-50:   rgba(179,157,219,.5);
+  --color-accent2:     #d4b8f5;
+  --color-text:        #f0edf8;
+  --color-muted:       #9e93bf;
+  --color-border:      rgba(179,157,219,.22);
+
+  --glow-sm:   0 4px 20px rgba(179,157,219,.28);
+  --glow-md:   0 8px 30px rgba(179,157,219,.42);
+  --glow-photo: 0 0 0 8px rgba(179,157,219,.12), 0 20px 60px rgba(0,0,0,.5);
+
+  --gradient-accent: linear-gradient(135deg, #b39ddb, #d4b8f5);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(179,157,219,.16) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(212,184,245,.1) 0%, transparent 60%);
+  --gradient-title: linear-gradient(90deg, #b39ddb, #d4b8f5);
+
+  --particle-r: 179; --particle-g: 157; --particle-b: 219;
+}

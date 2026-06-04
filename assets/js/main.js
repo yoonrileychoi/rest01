@@ -1,11 +1,66 @@
+// ── THEME SWITCHER ──
+const themeCss    = document.getElementById('theme-css');
+const paletteToggle = document.getElementById('paletteToggle');
+const palettePanel  = document.getElementById('palettePanel');
+const paletteOpts   = document.querySelectorAll('.palette-option');
+
+function applyTheme(name) {
+  themeCss.href = `assets/css/themes/theme-${name}.css`;
+  localStorage.setItem('theme', name);
+  paletteOpts.forEach(o => o.classList.toggle('active', o.dataset.theme === name));
+  // 파티클 색상 갱신 (테마 로드 후)
+  themeCss.onload = updateParticleColor;
+}
+
+const savedTheme = localStorage.getItem('theme') || 'green';
+applyTheme(savedTheme);
+
+paletteToggle.addEventListener('click', () => {
+  palettePanel.classList.toggle('open');
+});
+paletteOpts.forEach(btn => {
+  btn.addEventListener('click', () => {
+    applyTheme(btn.dataset.theme);
+    palettePanel.classList.remove('open');
+  });
+});
+document.addEventListener('click', e => {
+  if (!palettePanel.contains(e.target) && e.target !== paletteToggle)
+    palettePanel.classList.remove('open');
+});
+
+// ── HAMBURGER MENU ──
+const burger   = document.getElementById('navBurger');
+const navLinks = document.getElementById('navLinks');
+
+burger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  });
+});
+
 // ── PARTICLE BACKGROUND ──
 const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
+const ctx    = canvas.getContext('2d');
+let particleColor = '82,183,136';
 
-function resize() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
+function updateParticleColor() {
+  const s = getComputedStyle(document.documentElement);
+  const r = s.getPropertyValue('--particle-r').trim();
+  const g = s.getPropertyValue('--particle-g').trim();
+  const b = s.getPropertyValue('--particle-b').trim();
+  if (r) particleColor = `${r},${g},${b}`;
 }
+updateParticleColor();
+
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resize();
 window.addEventListener('resize', resize, { passive: true });
 
@@ -24,26 +79,22 @@ function drawParticles() {
   particles.forEach(p => {
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(196,168,245,${p.alpha})`;
+    ctx.fillStyle = `rgba(${particleColor},${p.alpha})`;
     ctx.fill();
-
-    p.x += p.dx;
-    p.y += p.dy;
+    p.x += p.dx; p.y += p.dy;
     if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
     if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
   });
-
-  // 가까운 파티클끼리 선으로 연결
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
-      const dx   = particles[i].x - particles[j].x;
-      const dy   = particles[i].y - particles[j].y;
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 120) {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(196,168,245,${0.12 * (1 - dist / 120)})`;
+        ctx.strokeStyle = `rgba(${particleColor},${0.12 * (1 - dist / 120)})`;
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
@@ -78,19 +129,14 @@ function type() {
   const current = phrases[phraseIdx];
   if (!deleting) {
     typeEl.textContent = current.slice(0, ++charIdx);
-    if (charIdx === current.length) {
-      deleting = true;
-      setTimeout(type, 1800);
-      return;
-    }
+    if (charIdx === current.length) { deleting = true; setTimeout(type, 1800); return; }
     setTimeout(type, 90);
   } else {
     typeEl.textContent = current.slice(0, --charIdx);
     if (charIdx === 0) {
-      deleting  = false;
+      deleting = false;
       phraseIdx = (phraseIdx + 1) % phrases.length;
-      setTimeout(type, 400);
-      return;
+      setTimeout(type, 400); return;
     }
     setTimeout(type, 45);
   }
@@ -99,33 +145,28 @@ type();
 
 // ── SCROLL FADE-UP ──
 const observer = new IntersectionObserver(
-  (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
   { threshold: 0.12 }
 );
 document.querySelectorAll(
   '.skill-card, .timeline__item, .edu-card, .contact-card, .section__title'
 ).forEach(el => { el.classList.add('fade-up'); observer.observe(el); });
 
-// ── NAV BACKGROUND ON SCROLL ──
+// ── NAV SCROLL BACKGROUND ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.style.background = window.scrollY > 50
-    ? 'rgba(14,12,22,.97)'
-    : 'rgba(14,12,22,.75)';
+    ? `color-mix(in srgb, var(--color-bg) 97%, transparent)`
+    : `color-mix(in srgb, var(--color-bg) 80%, transparent)`;
 }, { passive: true });
 
-// ── ACTIVE NAV LINK HIGHLIGHT ──
+// ── ACTIVE NAV LINK ──
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav__links a');
-const onScroll = () => {
+const navAnchors = document.querySelectorAll('.nav__links a');
+window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 120) current = sec.id; });
+  navAnchors.forEach(a => {
+    a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--color-text)' : '';
   });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === `#${current}`
-      ? 'var(--color-text)'
-      : '';
-  });
-};
-window.addEventListener('scroll', onScroll, { passive: true });
+}, { passive: true });
