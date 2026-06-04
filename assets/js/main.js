@@ -53,6 +53,22 @@ function drawParticles() {
 }
 drawParticles();
 
+// ── GSAP MOTION PATH ──
+if (typeof gsap !== 'undefined' && typeof MotionPathPlugin !== 'undefined') {
+  gsap.registerPlugin(MotionPathPlugin);
+  gsap.to('#deco-rect', {
+    motionPath: {
+      path: '#deco-path',
+      align: '#deco-path',
+      alignOrigin: [0.5, 0.5],
+      autoRotate: true,
+    },
+    duration: 18,
+    ease: 'none',
+    repeat: -1,
+  });
+}
+
 // ── TYPING EFFECT ──
 const phrases = ['서비스 기획자', 'UI/UX 설계', '아이디어를 현실로'];
 let phraseIdx = 0, charIdx = 0, deleting = false;

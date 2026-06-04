@@ -72,6 +72,16 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
   z-index: 0;
 }
+.hero__deco {
+  position: absolute;
+  right: 4vw; top: 50%;
+  transform: translateY(-50%);
+  width: clamp(200px, 28vw, 420px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 1;
+}
+#svg-stage { width: 100%; }
 .type-cursor {
   display: inline-block;
   color: var(--color-accent);
