@@ -1,6 +1,7 @@
 // ── DARK / LIGHT MODE ──
 const darkmodeBtn = document.getElementById('darkmodeToggle');
-const isLight = localStorage.getItem('lightMode') === 'true';
+const savedMode = localStorage.getItem('lightMode');
+const isLight = savedMode === null ? true : savedMode === 'true';
 if (isLight) { document.body.classList.add('light-mode'); darkmodeBtn.textContent = '☀️'; }
 
 darkmodeBtn.addEventListener('click', () => {
@@ -23,7 +24,7 @@ function applyTheme(name) {
   themeCss.onload = updateParticleColor;
 }
 
-const savedTheme = localStorage.getItem('theme') || 'green';
+const savedTheme = localStorage.getItem('theme') || 'sky';
 applyTheme(savedTheme);
 
 paletteToggle.addEventListener('click', () => {
