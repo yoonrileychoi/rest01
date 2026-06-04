@@ -250,6 +250,15 @@ img { display: block; max-width: 100%; }
   content: '›';
   position: absolute; left: 0; color: var(--color-accent);
 }
+.timeline__block { margin-top: 1rem; }
+.timeline__block-title {
+  font-size: .8rem; font-weight: 600;
+  color: var(--color-accent2);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: .35rem;
+}
+.timeline__desc strong { color: var(--color-text); font-weight: 600; }
 
 /* ── EDUCATION ── */
 .edu__grid {
