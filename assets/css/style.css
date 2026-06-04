@@ -2,14 +2,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-bg:        #0f0f13;
-  --color-surface:   #1a1a24;
-  --color-surface2:  #22223a;
-  --color-accent:    #7c6dfa;
-  --color-accent2:   #a78bfa;
-  --color-text:      #e8e8f0;
-  --color-muted:     #8888aa;
-  --color-border:    rgba(124,109,250,.2);
+  --color-bg:        #0e0c16;
+  --color-surface:   #17132a;
+  --color-surface2:  #211b38;
+  --color-accent:    #c4a8f5;
+  --color-accent2:   #e0d0ff;
+  --color-text:      #f0edf8;
+  --color-muted:     #9e93bf;
+  --color-border:    rgba(196,168,245,.18);
   --radius:          1rem;
   --transition:      .3s cubic-bezier(.4,0,.2,1);
   --font-sans:       'Inter', 'Noto Sans KR', sans-serif;
@@ -69,8 +69,8 @@ img { display: block; max-width: 100%; }
 .hero__bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(124,109,250,.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(167,139,250,.12) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(196,168,245,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(224,208,255,.12) 0%, transparent 60%);
   pointer-events: none;
 }
 .hero__content {
