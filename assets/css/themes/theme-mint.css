@@ -1,0 +1,39 @@
+/* ── THEME: Pastel Mint × Aqua ── */
+:root {
+  --color-bg:          #090e0e;
+  --color-surface:     #0f1a1a;
+  --color-surface2:    #152222;
+  --color-accent:      #a8e6d0;
+  --color-accent-50:   rgba(168,230,208,.5);
+  --color-accent2:     rgba(168,230,208,.3);
+  --color-text:        #eefff8;
+  --color-muted:       #7ab8a4;
+  --color-border:      rgba(168,230,208,.18);
+  --glow-sm:           0 4px 20px rgba(168,230,208,.22);
+  --glow-md:           0 8px 30px rgba(168,230,208,.36);
+  --glow-photo:        0 0 0 8px rgba(168,230,208,.12), 0 20px 60px rgba(0,0,0,.5);
+  --gradient-accent:   linear-gradient(135deg, #a8e6d0, #c8f0e8);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(168,230,208,.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200,240,232,.09) 0%, transparent 60%);
+  --gradient-title:    linear-gradient(90deg, #a8e6d0, #c8f0e8);
+  --particle-r: 168; --particle-g: 230; --particle-b: 208;
+}
+
+body.light-mode {
+  --color-bg:       #f0fff8;
+  --color-surface:  #ffffff;
+  --color-surface2: #e0f8f0;
+  --color-accent:   #2a9d7a;
+  --color-accent-50: rgba(42,157,122,.15);
+  --color-accent2:  rgba(42,157,122,.3);
+  --color-text:     #0a1e18;
+  --color-muted:    #3a7a62;
+  --color-border:   rgba(42,157,122,.2);
+  --glow-sm:        0 4px 20px rgba(42,157,122,.18);
+  --glow-md:        0 8px 30px rgba(42,157,122,.28);
+  --glow-photo:     0 0 0 8px rgba(42,157,122,.1), 0 20px 60px rgba(0,0,0,.15);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(168,230,208,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200,240,232,.08) 0%, transparent 60%);
+}

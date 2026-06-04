@@ -1,0 +1,39 @@
+/* ── THEME: Soft Lilac × Blush ── */
+:root {
+  --color-bg:          #100e14;
+  --color-surface:     #1a1720;
+  --color-surface2:    #221e2c;
+  --color-accent:      #c9b8f5;
+  --color-accent-50:   rgba(201,184,245,.5);
+  --color-accent2:     rgba(201,184,245,.3);
+  --color-text:        #f0eeff;
+  --color-muted:       #9b8ec4;
+  --color-border:      rgba(201,184,245,.18);
+  --glow-sm:           0 4px 20px rgba(201,184,245,.22);
+  --glow-md:           0 8px 30px rgba(201,184,245,.36);
+  --glow-photo:        0 0 0 8px rgba(201,184,245,.12), 0 20px 60px rgba(0,0,0,.5);
+  --gradient-accent:   linear-gradient(135deg, #c9b8f5, #f0c6f5);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(201,184,245,.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(240,198,245,.09) 0%, transparent 60%);
+  --gradient-title:    linear-gradient(90deg, #c9b8f5, #f0c6f5);
+  --particle-r: 201; --particle-g: 184; --particle-b: 245;
+}
+
+body.light-mode {
+  --color-bg:       #f5f0ff;
+  --color-surface:  #ffffff;
+  --color-surface2: #ede6ff;
+  --color-accent:   #7c5cbf;
+  --color-accent-50: rgba(124,92,191,.15);
+  --color-accent2:  rgba(124,92,191,.3);
+  --color-text:     #1a1028;
+  --color-muted:    #6b5490;
+  --color-border:   rgba(124,92,191,.2);
+  --glow-sm:        0 4px 20px rgba(124,92,191,.18);
+  --glow-md:        0 8px 30px rgba(124,92,191,.28);
+  --glow-photo:     0 0 0 8px rgba(124,92,191,.1), 0 20px 60px rgba(0,0,0,.15);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(201,184,245,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(240,198,245,.08) 0%, transparent 60%);
+}

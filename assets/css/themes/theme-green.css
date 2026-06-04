@@ -5,7 +5,7 @@
   --color-surface2:    #132819;
   --color-accent:      #52b788;
   --color-accent-50:   rgba(82,183,136,.5);
-  --color-accent2:     #56cfe1;
+  --color-accent2:     rgba(82,183,136,.3);
   --color-text:        #e8f5ee;
   --color-muted:       #7aaa8e;
   --color-border:      rgba(82,183,136,.22);
@@ -26,7 +26,7 @@ body.light-mode {
   --color-surface2: #e8f5ee;
   --color-accent:   #2d6a4f;
   --color-accent-50: rgba(45,106,79,.15);
-  --color-accent2:  #0096b4;
+  --color-accent2:  rgba(45,106,79,.3);
   --color-text:     #0d1f12;
   --color-muted:    #4a7a5e;
   --color-border:   rgba(45,106,79,.2);
