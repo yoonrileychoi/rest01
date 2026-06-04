@@ -66,6 +66,23 @@ img { display: block; max-width: 100%; }
   padding: 7rem 2rem 4rem;
   overflow: hidden;
 }
+.hero__canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.type-cursor {
+  display: inline-block;
+  color: var(--color-accent);
+  animation: blink .75s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.hero__content { position: relative; z-index: 1; }
 .hero__bg {
   position: absolute; inset: 0;
   background:

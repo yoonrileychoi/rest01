@@ -27,6 +27,7 @@
 
   <!-- ── HERO ── -->
   <section class="hero" id="about">
+    <canvas class="hero__canvas" id="particleCanvas"></canvas>
     <div class="hero__bg"></div>
     <div class="hero__content">
       <div class="hero__photo-wrap">
@@ -36,7 +37,7 @@
       <div class="hero__text">
         <p class="hero__greeting">안녕하세요, 저는</p>
         <h1 class="hero__name">최윤정<span class="hero__name-en"> Yoonjoung Riley Choi</span></h1>
-        <p class="hero__tagline"><!-- TODO: 한 줄 소개를 여기에 -->프론트엔드 개발자 · UI/UX 열정가</p>
+        <p class="hero__tagline"><span id="typeText"></span><span class="type-cursor">|</span></p>
         <div class="hero__cta">
           <a href="#contact" class="btn btn--primary">연락하기</a>
           <a href="#experience" class="btn btn--outline">경력 보기</a>
