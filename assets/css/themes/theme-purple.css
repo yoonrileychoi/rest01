@@ -9,16 +9,31 @@
   --color-text:        #f0edf8;
   --color-muted:       #9e93bf;
   --color-border:      rgba(179,157,219,.22);
-
-  --glow-sm:   0 4px 20px rgba(179,157,219,.28);
-  --glow-md:   0 8px 30px rgba(179,157,219,.42);
-  --glow-photo: 0 0 0 8px rgba(179,157,219,.12), 0 20px 60px rgba(0,0,0,.5);
-
-  --gradient-accent: linear-gradient(135deg, #b39ddb, #d4b8f5);
+  --glow-sm:           0 4px 20px rgba(179,157,219,.28);
+  --glow-md:           0 8px 30px rgba(179,157,219,.42);
+  --glow-photo:        0 0 0 8px rgba(179,157,219,.12), 0 20px 60px rgba(0,0,0,.5);
+  --gradient-accent:   linear-gradient(135deg, #b39ddb, #d4b8f5);
   --gradient-bg:
     radial-gradient(ellipse 60% 60% at 70% 40%, rgba(179,157,219,.16) 0%, transparent 70%),
     radial-gradient(ellipse 40% 40% at 20% 70%, rgba(212,184,245,.1) 0%, transparent 60%);
-  --gradient-title: linear-gradient(90deg, #b39ddb, #d4b8f5);
-
+  --gradient-title:    linear-gradient(90deg, #b39ddb, #d4b8f5);
   --particle-r: 179; --particle-g: 157; --particle-b: 219;
+}
+
+body.light-mode {
+  --color-bg:       #f5f2ff;
+  --color-surface:  #ffffff;
+  --color-surface2: #ede8ff;
+  --color-accent:   #6d28d9;
+  --color-accent-50: rgba(109,40,217,.15);
+  --color-accent2:  #9f67fa;
+  --color-text:     #12082a;
+  --color-muted:    #6b5b8a;
+  --color-border:   rgba(109,40,217,.2);
+  --glow-sm:        0 4px 20px rgba(109,40,217,.18);
+  --glow-md:        0 8px 30px rgba(109,40,217,.28);
+  --glow-photo:     0 0 0 8px rgba(109,40,217,.1), 0 20px 60px rgba(0,0,0,.15);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(179,157,219,.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(212,184,245,.09) 0%, transparent 60%);
 }

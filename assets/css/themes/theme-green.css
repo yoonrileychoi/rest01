@@ -1,24 +1,39 @@
-/* ── THEME: Dark Green × Sky Blue (default) ── */
+/* ── THEME: Dark Green × Sky Blue ── */
 :root {
   --color-bg:          #060e09;
   --color-surface:     #0c1e11;
   --color-surface2:    #132819;
-  --color-accent:      #52b788;        /* 주컬러: 다크 그린 */
-  --color-accent-50:   rgba(82,183,136,.5); /* 보조컬러: 50% */
-  --color-accent2:     #56cfe1;        /* 이벤트컬러: 스카이블루 */
+  --color-accent:      #52b788;
+  --color-accent-50:   rgba(82,183,136,.5);
+  --color-accent2:     #56cfe1;
   --color-text:        #e8f5ee;
   --color-muted:       #7aaa8e;
   --color-border:      rgba(82,183,136,.22);
-
-  --glow-sm:   0 4px 20px rgba(82,183,136,.28);
-  --glow-md:   0 8px 30px rgba(82,183,136,.42);
-  --glow-photo: 0 0 0 8px rgba(82,183,136,.12), 0 20px 60px rgba(0,0,0,.5);
-
-  --gradient-accent: linear-gradient(135deg, #52b788, #56cfe1);
+  --glow-sm:           0 4px 20px rgba(82,183,136,.28);
+  --glow-md:           0 8px 30px rgba(82,183,136,.42);
+  --glow-photo:        0 0 0 8px rgba(82,183,136,.12), 0 20px 60px rgba(0,0,0,.5);
+  --gradient-accent:   linear-gradient(135deg, #52b788, #56cfe1);
   --gradient-bg:
     radial-gradient(ellipse 60% 60% at 70% 40%, rgba(82,183,136,.16) 0%, transparent 70%),
     radial-gradient(ellipse 40% 40% at 20% 70%, rgba(86,207,225,.1) 0%, transparent 60%);
-  --gradient-title: linear-gradient(90deg, #52b788, #56cfe1);
-
+  --gradient-title:    linear-gradient(90deg, #52b788, #56cfe1);
   --particle-r: 82; --particle-g: 183; --particle-b: 136;
+}
+
+body.light-mode {
+  --color-bg:       #f2faf5;
+  --color-surface:  #ffffff;
+  --color-surface2: #e8f5ee;
+  --color-accent:   #2d6a4f;
+  --color-accent-50: rgba(45,106,79,.15);
+  --color-accent2:  #0096b4;
+  --color-text:     #0d1f12;
+  --color-muted:    #4a7a5e;
+  --color-border:   rgba(45,106,79,.2);
+  --glow-sm:        0 4px 20px rgba(45,106,79,.18);
+  --glow-md:        0 8px 30px rgba(45,106,79,.28);
+  --glow-photo:     0 0 0 8px rgba(45,106,79,.1), 0 20px 60px rgba(0,0,0,.15);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(82,183,136,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(86,207,225,.08) 0%, transparent 60%);
 }

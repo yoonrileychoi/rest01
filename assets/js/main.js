@@ -1,3 +1,14 @@
+// ── DARK / LIGHT MODE ──
+const darkmodeBtn = document.getElementById('darkmodeToggle');
+const isLight = localStorage.getItem('lightMode') === 'true';
+if (isLight) { document.body.classList.add('light-mode'); darkmodeBtn.textContent = '☀️'; }
+
+darkmodeBtn.addEventListener('click', () => {
+  const light = document.body.classList.toggle('light-mode');
+  darkmodeBtn.textContent = light ? '☀️' : '🌙';
+  localStorage.setItem('lightMode', light);
+});
+
 // ── THEME SWITCHER ──
 const themeCss    = document.getElementById('theme-css');
 const paletteToggle = document.getElementById('paletteToggle');

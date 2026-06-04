@@ -9,16 +9,31 @@
   --color-text:        #f8edf1;
   --color-muted:       #b88a96;
   --color-border:      rgba(232,143,169,.22);
-
-  --glow-sm:   0 4px 20px rgba(232,143,169,.28);
-  --glow-md:   0 8px 30px rgba(232,143,169,.42);
-  --glow-photo: 0 0 0 8px rgba(232,143,169,.12), 0 20px 60px rgba(0,0,0,.5);
-
-  --gradient-accent: linear-gradient(135deg, #e88fa9, #f4b8cc);
+  --glow-sm:           0 4px 20px rgba(232,143,169,.28);
+  --glow-md:           0 8px 30px rgba(232,143,169,.42);
+  --glow-photo:        0 0 0 8px rgba(232,143,169,.12), 0 20px 60px rgba(0,0,0,.5);
+  --gradient-accent:   linear-gradient(135deg, #e88fa9, #f4b8cc);
   --gradient-bg:
     radial-gradient(ellipse 60% 60% at 70% 40%, rgba(232,143,169,.16) 0%, transparent 70%),
     radial-gradient(ellipse 40% 40% at 20% 70%, rgba(244,184,204,.1) 0%, transparent 60%);
-  --gradient-title: linear-gradient(90deg, #e88fa9, #f4b8cc);
-
+  --gradient-title:    linear-gradient(90deg, #e88fa9, #f4b8cc);
   --particle-r: 232; --particle-g: 143; --particle-b: 169;
+}
+
+body.light-mode {
+  --color-bg:       #fff5f8;
+  --color-surface:  #ffffff;
+  --color-surface2: #ffe8ef;
+  --color-accent:   #be2d5a;
+  --color-accent-50: rgba(190,45,90,.15);
+  --color-accent2:  #e05c8a;
+  --color-text:     #1f0810;
+  --color-muted:    #8a4a5e;
+  --color-border:   rgba(190,45,90,.2);
+  --glow-sm:        0 4px 20px rgba(190,45,90,.18);
+  --glow-md:        0 8px 30px rgba(190,45,90,.28);
+  --glow-photo:     0 0 0 8px rgba(190,45,90,.1), 0 20px 60px rgba(0,0,0,.15);
+  --gradient-bg:
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(232,143,169,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(244,184,204,.08) 0%, transparent 60%);
 }
